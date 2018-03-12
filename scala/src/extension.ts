@@ -5,7 +5,7 @@ import * as VSCode from 'vscode';
 import * as URL from 'url';
 
 import { workspace, ExtensionContext, window } from 'vscode';
-import { LanguageClient, LanguageClientOptions, ServerOptions } from 'vscode-languageclient';
+import { LanguageClient, LanguageClientOptions, ServerOptions, RevealOutputChannelOn } from 'vscode-languageclient';
 
 import { Sbt } from './sbt';
 import { Requirements } from './requirements';
@@ -76,6 +76,7 @@ export async function activate(context: ExtensionContext) {
   let clientOptions: LanguageClientOptions = {
     // Register the server for plain text documents
     documentSelector: ['scala'],
+    revealOutputChannelOn: RevealOutputChannelOn.Never,
     synchronize: {
       // // Synchronize the setting section 'languageServerExample' to the server
       // configurationSection: 'languageServerExample',
